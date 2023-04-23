@@ -1,0 +1,97 @@
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  background: url("https://www.mundodeportivo.com/alfabeta/hero/2019/07/bulbasaur-charmander-squirtle-shiny-evoluciones.jpg?width=1200&aspect_ratio=16:9");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+  height: 100vh;
+}
+.boton{
+  height: 40px;
+  width: 70px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 5px #6261641f;
+  text-decoration: none;
+}
+.link{
+  text-decoration: none;
+  color: #fff;
+}
+.boton:hover{
+    box-shadow: 0 3px #50505263;
+  top: 1px;
+}
+.boton:active{
+    box-shadow: 0 0 #070707;
+  top: 5px;
+}
+.contenedordetails {
+    border-radius: 7px;
+    padding: 0.3rem;
+  }
+  
+.contenedordetailstop{
+    height: 40%;
+    background: url("../../../public/pokeball.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.detailstopbar{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    
+}
+.detailstopbarname{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.topimg{
+    width: 200px;
+    height: 210px;
+   transform: translateY(4rem)
+}
+.contenedordata{
+      background-color:whitesmoke;
+      height: 56%;
+      border-radius: 8px;
+}
+.contenedordatap{
+   padding-top: 2rem;
+
+}
+.datap{
+   color: white;
+    font-weight: 600;
+}
+.dataspam{
+  color: white;
+   
+}
+@media screen and (min-width: 800px) {
+    .contenedordetails {
+      margin-top: 6rem;
+
+    }
+  }
+  
+  @media screen and (min-width: 300px) {
+    .contenedordetails {
+      margin-top: 4rem;
+      width: 25rem;
+    height: 35rem;
+    }
+  }
