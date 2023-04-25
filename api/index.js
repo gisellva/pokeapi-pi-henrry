@@ -17,18 +17,22 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-require('dotenv').config();
-const express = require('express');
-const server = express();
+const server = require('./src/app');
+const {comn}=require("./src/db")
 const port = process.env.PORT || 3001;
-const router = require("./src/routes/index");
-const cors = require('cors');
 
-server.use(cors({
-  origin: 'http://localhost:3000'
-}));
-server.use("/", router);
+(async () => {
+  try {
+    await comn.authenticate();
+    console.log('Connection has been established successfully.');
 
-server.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+    await comn.sync({force:true});
+    console.log('All models were synchronized successfully.');
+
+    server.listen(port, () => {
+      console.log(`Server listening at http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+})();
