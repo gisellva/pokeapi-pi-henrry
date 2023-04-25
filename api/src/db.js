@@ -17,9 +17,9 @@ const sequelize = new Sequelize(
 PokemonsModule(sequelize)
 TypesModule(sequelize)
 
-const {Pokemon , Type}=sequelize.models
-Pokemon.belongsToMany(Type , { through: 'Pokemon_Type' })
-Type.belongsToMany(Pokemon ,{ through: 'Pokemon_Type' })
+const {Pokemon,Type}=sequelize.models
+Pokemon.belongsToMany(Type,{ through: 'Pokemon_Type' })
+Type.belongsToMany(Pokemon,{ through: 'Pokemon_Type' })
 module.exports = {
   ...sequelize.models,
   comn:sequelize};
