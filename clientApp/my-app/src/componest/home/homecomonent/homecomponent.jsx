@@ -28,6 +28,7 @@ export default function Homecomponent( ) {
     <Filtratpororigen/>
     </div>
    {loading? <Loading/>: <Cards  />}
+    
      </div>
   )
 }

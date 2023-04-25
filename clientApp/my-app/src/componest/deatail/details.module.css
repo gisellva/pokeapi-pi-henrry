@@ -62,7 +62,7 @@
 .topimg{
     width: 200px;
     height: 210px;
-   transform: translateY(4rem)
+   transform: translateY(-2rem)
 }
 .contenedordata{
       background-color:whitesmoke;

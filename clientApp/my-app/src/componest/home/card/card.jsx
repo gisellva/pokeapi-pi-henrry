@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from './card.module.css';
+import styles from "./card.module.css"
 import { Link } from 'react-router-dom'
 
 export default function Card({name,img,type}) {
 return (
     <div  className={`${styles.card} ${type}`}>
  
- <div  className={styles.image}>
+ <div  className={styles.imagecontend}>
   <img src={img} alt={name} className={styles.pokemonimg} />
  </div>
  

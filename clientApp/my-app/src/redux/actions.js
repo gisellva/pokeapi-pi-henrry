@@ -1,5 +1,5 @@
-import { SET_LOADING, SET_ORDER, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK,SET_SHOW,SET_ORDERATTACK } from "./types";
-import {getPokemondetails} from "./api"
+import { SET_LOADING, SET_ORDER, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK,SET_SHOW,SET_ORDERATTACK, SET_POKEMONSTYPE } from "./types";
+import {getPokemondetails, getpokemonestype} from "./api"
 
 //*actions sincronas
 
@@ -27,6 +27,10 @@ export const orderZ_A=()=>({
 export const filterByAttack = () => ({
   type:SET_ORDERATTACK
 });
+export const setPokemonstype = (payload) => ({
+  type:SET_POKEMONSTYPE,
+  payload
+});
 //*actions asincronas
 //la accion des dispach permite llegar al redcuder 
  export const getpokemonsDetailaction=(pokemons=[])=>async(dispach)=>{
@@ -45,3 +49,14 @@ export const fetchPokemon = pokemon => {
         .catch(error => console.log("error"));
     };
 };
+
+export const fechpokemonstype=(type)=>async(dispach)=>{
+  try {
+    const respone=await getpokemonestype(type)
+    const pokemons =respone.pokemon.map((poke)=>poke.pokemon)
+    const pokemontypedetails=await  Promise.all( pokemons.map(pokeurl=>getPokemondetails(pokeurl)))
+    dispach(setPokemonstype(pokemontypedetails))
+  } catch (error) {
+    console.log(error);
+  }
+}

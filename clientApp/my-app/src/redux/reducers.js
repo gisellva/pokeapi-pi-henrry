@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_ORDER, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK,SET_ORDERATTACK } from "./types";
+import { SET_LOADING, SET_ORDER, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK,SET_ORDERATTACK, SET_POKEMONSTYPE } from "./types";
 
 
 const initialstate = {
@@ -24,10 +24,13 @@ export const pokemonsReducer = (state = initialstate, action) => {
       return { ...state, pokemons: state.pokemons.slice().sort((a, b) => b.name.localeCompare(a.name)) };
 
     case SET_ORDERATTACK:
-    
       return {
         ...state,
-        pokemons: state.pokemons.slice().sort((a, b) => b.stats[1].base_stat - a.stats[1].base_stat)  };
+        pokemons: state.pokemons.slice().sort((a, b) => b.stats[1].base_stat - a.stats[1].base_stat) 
+     };
+
+     case SET_POKEMONSTYPE:
+      return { ...state,pokemons:action.payload  };
 
     default:
       return { ...state };

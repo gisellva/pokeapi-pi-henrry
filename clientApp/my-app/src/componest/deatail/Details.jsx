@@ -36,7 +36,7 @@ export default function Details() {
           <spam>#{pokemon.id} </spam>
          </div>
         <div className={styles.detailstopimg}>
-        <img className={styles.topimg} src={pokemon.sprites &&pokemon.sprites.other.home.front_default}  alt="ivysaur" class="card_pokemonimg__Pj--I"/>  
+        <img className={styles.topimg} src={pokemon.sprites &&pokemon.sprites.other.home.front_default}  alt="ivysaur"/>  
         </div>
       </div>
       <div className={styles.contenedordata}>
