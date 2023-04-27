@@ -68,6 +68,31 @@ export default function Fomr() {
       return;
     }
     console.log(formData);
+    const formDataToSend = {
+      name: formData.nombre,
+      hp: formData.vida,
+      attack: formData.ataque,
+      defense: formData.defensa,
+      speed: formData.velocidad,
+      height: formData.altura,
+      weight: formData.peso,
+      image: formData.imagen,
+     
+    };
+    fetch('http://localhost:3001/pokemons', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formDataToSend),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
   return (
     <div className={styles.formulariodiv} >
@@ -83,7 +108,8 @@ export default function Fomr() {
         <input type="text" id="nombre" name="nombre" required value={formData.nombre} onChange={handlechange} />
 
         <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/png,image/jpeg" capture="camera" required value={formData.imagen} onChange={handlechange} />
+        <input type="text" id="imagen" name="imagen" required value={formData.imagen} onChange={handlechange} />
+       
 
         <label for="vida">Vida:</label>
         <input type="number" id="vida" name="vida" required value={formData.vida} onChange={handlechange} />

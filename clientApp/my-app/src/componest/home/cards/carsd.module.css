@@ -6,3 +6,38 @@
     grid-row-gap: 12px;
     margin-left: 3rem;
 }
+.botones{
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 2rem;
+    
+}
+.boton{
+    height: 40px;
+    width: 70px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px #6261641f;
+  }
+  .boton:hover{
+      box-shadow: 0 3px #50505263;
+    top: 1px;
+  }
+  .boton:active{
+      box-shadow: 0 0 #070707;
+    top: 5px;
+  }
+  .paginado{
+    font-size: 1rem;
+    color: rgb(97, 48, 119) ;
+  
+  }

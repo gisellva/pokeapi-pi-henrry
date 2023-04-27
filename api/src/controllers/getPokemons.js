@@ -3,7 +3,9 @@ const axios = require('axios');
 const getpokemons = async(req, res) => {
   
   try {
-    const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=12");
+   
+    const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100");
+ 
     const pokemons = response.data.results;
     const pokemonData = await Promise.all(
       pokemons.map(async (pokemon) => {
@@ -23,6 +25,7 @@ const getpokemons = async(req, res) => {
       })
     );
     return res.json(pokemonData);
+   
   } catch (error) {
     return res.status(404).json({ error: error.message });
   }
