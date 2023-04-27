@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Card from '../card/card'
 import styles from './carsd.module.css';
 import {  useSelector } from 'react-redux';
@@ -14,9 +14,9 @@ export default function Cards() {
     <div className={ styles.cards}>
    {pokemons.map((pokemon) => {
     return < Card 
-    name ={pokemon.name} 
-    img={pokemon.sprites.other.home.front_default} 
-    type={pokemon.types[0].type.name} 
+   name ={pokemon.name} 
+    img={pokemon.image} 
+   type={pokemon.type} 
     key={pokemon.name}
    
     />;

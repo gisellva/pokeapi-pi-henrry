@@ -4,22 +4,23 @@ import Landing from './componest/landing/Landing';
 import Details from './componest/deatail/Details';
 import Fomr from './componest/fomr/Fom';
 import { useEffect } from 'react';
-import { getpokemonsDetailaction } from "./redux/actions"
+import { setpokemons } from "./redux/actions"
 import {  useDispatch } from 'react-redux';
 import Homecomponent from './componest/home/homecomonent/homecomponent';
-import { getPokemon,  } from './redux/api';
+
+
 
 function App() {
   
-  const dispatch = useDispatch();
+  const dispatch =useDispatch();
 
 
   useEffect(() => {
-    const fectpo = async () => {
-      const pokeres = await getPokemon();
-      dispatch  ( getpokemonsDetailaction( pokeres))
-    };
-    fectpo();
+  fetch('http://localhost:3001/pokemons')
+  .then(response => response.json())
+  .then(response => dispatch(setpokemons(response)))
+  .catch(err => console.error(err))
+    
   }, []);
 
   return (

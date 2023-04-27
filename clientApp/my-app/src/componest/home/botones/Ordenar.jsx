@@ -10,10 +10,10 @@ export default function Ordenar() {
     setShowMenu(!showMenu);
   }
   const handleorderA_Z = () => {
-    dispatch(orderA_Z())
+   dispatch(orderA_Z())
   }
   const handleorderZ_A=()=>{
-    dispatch(orderZ_A())
+   dispatch(orderZ_A())
   }
   const handlefilterByAttack = () => {
     dispatch(filterByAttack());

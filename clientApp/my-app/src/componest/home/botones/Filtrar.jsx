@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './filtrar.module.css';
-import { useDispatch } from 'react-redux';
-import { fechpokemonstype } from '../../../redux/actions';
+//import { useDispatch } from 'react-redux';
+//import { fechpokemonstype } from '../../../redux/actions';
 
 export default function Filtrar() {
   const types = ["normal","fighting", "flying","poison","ground","rock","bug","ghost","steel","fire","water","grass", "electric", "psychic", "ice","dragon","dark","fairy","unknown","shadow"];
-  const dispatch = useDispatch();
+ // const dispatch = useDispatch();
   const handleFilterClick = (event) => {
-    const filterValue = event.target.value;
-    dispatch( fechpokemonstype(filterValue))
+   // const filterValue = event.target.value;
+   // dispatch( fechpokemonstype(filterValue))
   };
 
   return (

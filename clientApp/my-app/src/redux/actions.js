@@ -1,5 +1,5 @@
-import { SET_LOADING, SET_ORDER, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK,SET_SHOW,SET_ORDERATTACK, SET_POKEMONSTYPE } from "./types";
-import {getPokemondetails, getpokemonestype} from "./api"
+import {  SET_ORDER, SET_ORDERATTACK, SET_ORDERZ_A, SET_POKEMONS, SET_POKEMONSSERCK, } from "./types";
+//import {getPokemondetails, getpokemonestype} from "./api"
 
 //*actions sincronas
 
@@ -7,15 +7,18 @@ export const setpokemons = (payload) => ({
     type: SET_POKEMONS,
     payload
 });
-  
-export const setloading=(payload)=>({
-   type: SET_LOADING,
-   payload
-})
-export const setShowMenu=(payload)=>({
-  type:SET_SHOW,
-  payload
-})
+export const fetchPokemon = pokemon => {
+  return dispatch => {
+    fetch(`http://localhost:3001/pokemons/name?name=${pokemon}`)
+      .then(res => res.json())
+      .then(data =>
+        dispatch({ type :SET_POKEMONSSERCK, payload: data })
+      )
+      .catch(error => console.log("error"));
+  };
+};
+ 
+
 export const orderA_Z=()=>({
   type:SET_ORDER,
   
@@ -27,11 +30,20 @@ export const orderZ_A=()=>({
 export const filterByAttack = () => ({
   type:SET_ORDERATTACK
 });
+ /*/
+export const setloading=(payload)=>({
+   type: SET_LOADING,
+   payload
+})
+export const setShowMenu=(payload)=>({
+  type:SET_SHOW,
+  payload
+})
 export const setPokemonstype = (payload) => ({
   type:SET_POKEMONSTYPE,
   payload
 });
-//*actions asincronas
+
 //la accion des dispach permite llegar al redcuder 
  export const getpokemonsDetailaction=(pokemons=[])=>async(dispach)=>{
     const pokemondetailoaction =await Promise.all(pokemons.map(pok=>getPokemondetails(pok)))
@@ -39,16 +51,6 @@ export const setPokemonstype = (payload) => ({
     dispach(setpokemons( pokemondetailoaction))
 }  
 
-export const fetchPokemon = pokemon => {
-    return dispatch => {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-        .then(res => res.json())
-        .then(data =>
-          dispatch({ type :SET_POKEMONSSERCK, payload: data })
-        )
-        .catch(error => console.log("error"));
-    };
-};
 
 export const fechpokemonstype=(type)=>async(dispach)=>{
   try {
@@ -59,4 +61,4 @@ export const fechpokemonstype=(type)=>async(dispach)=>{
   } catch (error) {
     console.log(error);
   }
-}
+}/*/
