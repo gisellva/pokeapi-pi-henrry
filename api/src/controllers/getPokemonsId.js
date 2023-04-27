@@ -28,7 +28,7 @@ const getpokemonsid=async(req, res)=>{
         speed: response.data.stats[5].base_stat,
         height: response.data.height,
         weight: response.data.weight,
-        type:response.data.types.type
+        type: response.data.types.map(type => type.type.name),
       };
       return res.json(pokemon);
     } catch (error) {

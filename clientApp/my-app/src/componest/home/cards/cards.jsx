@@ -17,6 +17,7 @@ export default function Cards() {
    name ={pokemon.name} 
     img={pokemon.image} 
    type={pokemon.type} 
+   id={pokemon.id}
     key={pokemon.name}
    
     />;

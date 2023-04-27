@@ -5,11 +5,11 @@ import styles from './details.module.css';
 import { Link } from 'react-router-dom';
 
 export default function Details() {
-  const { detailsname } = useParams();
+  const { id } = useParams();
   const [pokemon, setPokemon] = useState({});
   
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${detailsname}`)
+    fetch(`http://localhost:3001/pokemons/${id}`)
       .then((response) => response.json())
       .then((pok) => {
         if (pok.name) {
@@ -21,34 +21,33 @@ export default function Details() {
       .catch((err) => {
         window.alert("No hay pokemon con ese nombre.");
       });
-  }, [detailsname]);
-
+  }, [id]);
+console.log(pokemon);
   return (
     <div className={styles.contenedor} >
-      <button className={`${styles.boton}  ${pokemon.types && pokemon.types[0].type.name}`}>
+      <button className={`${styles.boton}  ${pokemon.type ? pokemon.type[0] : "normal"}`}>
       <Link to="/home"className={styles.link}>home</Link>
       </button>
 
-    <div className={`${styles.contenedordetails}  ${pokemon.types && pokemon.types[0].type.name}`}>
+    <div className={`${styles.contenedordetails}  ${pokemon.type ? pokemon.type[0] : "normal"}`}>
       <div className={styles.contenedordetailstop}>
         <div className={styles.detailstopbar} >
           <p  className={styles.detailstopbarname}>{pokemon.name}</p>
           <spam>#{pokemon.id} </spam>
          </div>
         <div className={styles.detailstopimg}>
-        <img className={styles.topimg} src={pokemon.sprites &&pokemon.sprites.other.home.front_default}  alt="ivysaur"/>  
+        <img className={styles.topimg} src={pokemon.image}  alt="ivysaur"/>  
         </div>
       </div>
       <div className={styles.contenedordata}>
       
       <div className={styles.contenedordatap}>
-      <p className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}> Tipo:  <span className={styles.dataspam}>{pokemon.types && pokemon.types[0].type.name}  </span> </p>
-         <p  className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Vida :  <span className={styles.dataspam}> {pokemon.stats &&pokemon.stats[0].base_stat} </span> </p>
-         <p className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Ataque : <span className={styles.dataspam}> {pokemon.stats &&pokemon.stats[1].base_stat} </span> </p>
-         <p  className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Defensa : <span className={styles.dataspam}> {pokemon.stats &&pokemon.stats[2].base_stat} </span> </p>
-         <p  className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Velocidad : <span className={styles.dataspam}> {pokemon.stats &&pokemon.stats[5].base_stat } </span> </p>
-         <p  className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Altura : <span className={styles.dataspam}> {pokemon.stats &&pokemon.height} </span></p>
-         <p  className={`${styles.datap}  ${pokemon.types && pokemon.types[0].type.name}`}>Peso : <span className={styles.dataspam}> {pokemon.stats &&pokemon.weight} </span> </p>
+      <p className={`${styles.datap}  ${pokemon.type ? pokemon.type[0] : "normal"}`}> Tipo:  <span className={styles.dataspam}>{pokemon.type}  </span> </p>
+         <p  className={`${styles.datap} ${pokemon.type ? pokemon.type[0] : "normal"}`}>Vida :  <span className={styles.dataspam}> {pokemon.hp} </span> </p>
+         <p className={`${styles.datap}  ${pokemon.type ? pokemon.type[0] : "normal"}`}>Ataque : <span className={styles.dataspam}> {pokemon.attack} </span> </p>
+         <p  className={`${styles.datap}  ${pokemon.type ? pokemon.type[0] : "normal"}`}>Defensa : <span className={styles.dataspam}> {pokemon.defense} </span> </p>
+         <p  className={`${styles.datap} ${pokemon.type ? pokemon.type[0] : "normal"}`}>Velocidad : <span className={styles.dataspam}> {pokemon.speed } </span> </p>
+         <p  className={`${styles.datap}  ${pokemon.type ? pokemon.type[0] : "normal"}`}>Peso : <span className={styles.dataspam}> {pokemon.weight} </span> </p>
   </div>
       </div>
     </div>
