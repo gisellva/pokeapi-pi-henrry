@@ -14,6 +14,7 @@ export default function Homecomponent( ) {
  const pokemons = useSelector(state => state.pokemons);
  const dispatch= useDispatch()
 
+ 
  //usamo el use effect para que el estado de setloadng se actualice  de forma asincronica despues del fech de los pokemones 
  React.useEffect(() => {
   updateLoadingState(pokemons, dispatch);
