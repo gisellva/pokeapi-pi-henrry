@@ -3,9 +3,9 @@ import styles from "./card.module.css"
 import { Link } from 'react-router-dom'
 
 export default function Card({name,img,type}) {
-  const types =type.join(" y ")
+  const types =type?type.join(" y "):"creado en base de datos"
 return (
-    <div  className={`${styles.card} ${type && type[0]}`}>
+    <div  className={`${styles.card} ${type ? type[0] : "normal"}`}>
  
  <div  className={styles.imagecontend}>
   <img src={img} alt={name} className={styles.pokemonimg} />
