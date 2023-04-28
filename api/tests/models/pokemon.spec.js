@@ -1,8 +1,8 @@
-const { Pokemon, conn } = require('../../src/db.js');
+const { Pokemon,comn } = require('../../src/db');
 const { expect } = require('chai');
 
 describe('Pokemon model', () => {
-  before(() => conn.authenticate()
+  before(() => comn.authenticate()
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
     }));

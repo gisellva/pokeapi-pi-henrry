@@ -24,7 +24,7 @@ const getpokemons = async(req, res) => {
          };
       })
     );
-    return res.json(pokemonData);
+    return res.status(200).json(pokemonData);
    
   } catch (error) {
     return res.status(404).json({ error: error.message });

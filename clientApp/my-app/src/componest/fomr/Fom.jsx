@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styles from './form.module.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 export default function Fomr() {
-  const types = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "unknown", "shadow"];
+  const  types =useSelector(state=>state.types)
   const [formData, setFormData] = useState({
     nombre: '',
     imagen: null,
@@ -74,7 +75,7 @@ export default function Fomr() {
       height: formData.altura,
       weight: formData.peso,
       image: formData.imagen,
-     
+      type:formData.tipos
     };
     fetch('http://localhost:3001/pokemons', {
       method: 'POST',
