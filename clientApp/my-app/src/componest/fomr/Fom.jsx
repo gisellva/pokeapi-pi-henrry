@@ -59,10 +59,7 @@ export default function Fomr() {
       alert('El campo  debe peso debe tener de 1 a maximo 3 numeros.');
       return;
     }
-    if (!expresiones.imagen.test(formData. imagen)) {
-      alert('El archivo debe ser en formatos permitidos jpg ,png ,svg,jfif');
-      return;
-    }
+    
     if (!formData.nombre || !formData.imagen || !formData.vida || !formData.ataque || !formData.defensa || !formData.velocidad || !formData.altura || !formData.peso || !formData.tipos) {
       alert('Todos los campos son obligatorios');
       return;

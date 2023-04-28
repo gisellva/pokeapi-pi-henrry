@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../card/card'
 import styles from './carsd.module.css';
-import {  useDispatch, useSelector } from 'react-redux';
-import { setpokemons } from '../../../redux/actions';
+import { useSelector} from 'react-redux';
+
 
 
 export default function Cards() {

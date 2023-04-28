@@ -67,7 +67,7 @@ export const fechpokemonstype=(type)=>async(dispach)=>{
         height: pokemon.height,
         hp: pokemon.stats[0].base_stat,
         id: pokemon.id,
-        image: pokemon.sprites.other["official-artwork"].front_default,
+        image:pokemon.sprites.other.home.front_default,
         name: pokemon.name,
         speed: pokemon.stats[5].base_stat,
         type: pokemon.types.map((type) => type.type.name),
