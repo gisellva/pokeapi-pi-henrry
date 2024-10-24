@@ -61,7 +61,7 @@ Inicia la aplicación frontend:
     cd client
     npm start
     
-##Rutas del Backend
+## Rutas del Backend
 GET /pokemons: Obtiene un arreglo de todos los Pokémon.
 GET /pokemons/:id: Obtiene los detalles de un Pokémon específico.
 GET /pokemons/name?="...": Busca Pokémon por nombre.
@@ -70,10 +70,10 @@ GET /types: Obtiene todos los tipos de Pokémon.
 Pruebas
 Se recomienda implementar pruebas unitarias en al menos uno de los componentes del frontend y dos rutas del backend para asegurar la calidad del código.
 
-##Contribuciones
+## Contribuciones
 Las contribuciones son bienvenidas. Si deseas colaborar, por favor abre un issue o envía un pull request.
 
-##Licencia
+## Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 <img src="./pokemon.png" alt="" />
